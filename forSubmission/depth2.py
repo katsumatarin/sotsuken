@@ -1,21 +1,22 @@
-# ファイルへの保存
+# ファイルの再生
 
 import pyrealsense2 as rs # ライブラリ（PyRealsense2）のインポート
 import numpy as np # ライブラリ（NumPy）のインポート
 import cv2 # ライブラリ（OpenCV）のインポート
 
 config = rs.config()
+config.enable_device_from_file('./data/d415data.mp4') # ファイル名を設定
 config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30) # ストリーム(Color)の設定
 config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30) # ストリーム(Depth)の設定
 config.enable_stream(rs.stream.infrared, 640, 480, rs.format.y8, 30) # ストリーム(Infrared)の設定
-config.enable_record_to_file('./data/d415data.mp4') # ファイル名を設定
+
 
 pipeline = rs.pipeline()
 profile = pipeline.start(config) # ストリーミング開始
 
 try:
     while True:
-      　# フレーム待ち(Color & Depth)
+      # フレーム待ち(Color & Depth)
         frames = pipeline.wait_for_frames()
         color_frame = frames.get_color_frame() # frames.get_color_frameで最初のカラーフレームを取得し、戻り値をcolor_frameに代入
         depth_frame = frames.get_depth_frame() # frames.get_depth_frameで最初の深度フレームを取得し、戻り値をdepth_frameに代入
