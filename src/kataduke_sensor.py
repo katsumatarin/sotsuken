@@ -141,9 +141,9 @@ def detect_contour(path):
 if __name__ == '__main__':
   print("出力ファイル名を入力してください")
   output_name = input()
-  os.makedirs(f'./data/out/{output_name}')
+  os.makedirs(f'../data/out/{output_name}')
 
-  output_video_file_name = f'./data/out/{output_name}/{output_name}.mp4'
+  output_video_file_name = f'../data/out/{output_name}/{output_name}.mp4'
   capture_depth_image(output_video_file_name)
 
   while(True):
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     if sec == -1:
       break
 
-    output_image_file_name = f'data/out/{output_name}/{output_name}_{sec}sec.jpg'
+    output_image_file_name = f'../data/out/{output_name}/{output_name}_{sec}sec.jpg'
     save_frame_sec(output_video_file_name, sec, output_image_file_name)
     detect_contour(output_image_file_name)
 
