@@ -4,12 +4,12 @@ import cv2
 import os
 import capture_depth_image
 import save_frame_sec
-import detect_contour
+import detect_counter
 
 def chirakari_hantei():
   print("出力ファイル名を入力してください")
   output_name = input()
-  os.makedirs(f'./data/out/{output_name}')
+  os.makedirs(f'./data/out/{output_name}', exist_ok=True)
 
   output_video_file_name = f'./data/out/{output_name}/{output_name}.mp4'
 
@@ -28,7 +28,8 @@ def chirakari_hantei():
     # 指定された秒数の画像を保存
     save_frame_sec.save_frame_sec(output_video_file_name, sec, output_image_file_name)
 
-    detect_count, src = detect_contour.detect_contour(output_image_file_name)
+    # 画像から物体を検出し、物体の数と物体を矩形で囲んだ画像を取得
+    detect_count, src = detect_counter.detect_counter(output_image_file_name)
 
     if detect_count > 10:
       print('部屋が汚れています！大至急片付けましょう！')

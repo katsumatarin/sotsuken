@@ -7,7 +7,7 @@ import save_frame_sec
 
 # 指定した画像(path)の物体を検出し、外接矩形の画像を出力。
 # 検出した物体の数と外接矩形の画像を返す。
-def detect_contour(path):
+def detect_counter(path):
 
   # 画像を読込
   src = cv2.imread(path, cv2.IMREAD_COLOR)
@@ -51,4 +51,4 @@ def detect_contour(path):
 
       detect_count = detect_count + 1
 
-  return detect_contour, src
+  return detect_count, src
