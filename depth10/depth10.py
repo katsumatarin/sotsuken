@@ -9,7 +9,7 @@ import numpy as np
 import cv2
 
 TARGET_DISTANCE = 2 # 2m以上は表示しない
-OUTPUT_VIDEO_FILE = './data/temp/sample_depth2.mp4'
+OUTPUT_VIDEO_FILE = './data/depth_movie.mp4'
 
 # ストリーム(Depth/Color)の設定
 pipeline = rs.pipeline()
@@ -64,4 +64,22 @@ try:
 finally:
     # ストリーミング停止
     pipeline.stop()
+    cv2.destroyAllWindows()
+    filepath = "C:/github/sample/python/opencv/video/input.mp4"
+    # 動画の読み込み
+    cap = cv2.VideoCapture('./data/depth_movie.mp4')
+
+    # 動画終了まで繰り返し
+    while(cap.isOpened()):
+    # フレームを取得
+        ret, frame = cap.read()
+
+    # フレームを表示
+        cv2.imshow("Frame", frame)
+
+    # qキーが押されたら途中終了
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
     cv2.destroyAllWindows()

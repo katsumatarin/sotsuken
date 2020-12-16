@@ -7,7 +7,7 @@ import numpy as np
 filepath = "C:/github/sample/python/opencv/video/input.mp4"
 
 # 動画の読み込み
-cap = cv2.VideoCapture('./sample_depth.avi')
+cap = cv2.VideoCapture('./data/temp/sample_depth2.mp4')
 
 # 動画終了まで繰り返し
 while(cap.isOpened()):
