@@ -133,3 +133,4 @@ dmypy.json
 **/*.avi
 **/*.mp4
 **/*.jpg
+tmp/*
