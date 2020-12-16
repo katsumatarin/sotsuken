@@ -48,10 +48,12 @@ def detect_contour(path):
 
       detect_count = detect_count + 1
 
-  if detect_count > 0:
-    print('True')
+  if detect_count > 10:
+    print('部屋が汚れています！大至急片付けましょう！')
+  elif detect_count > 0:
+    print('部屋が少し汚いので片付けてください！')
   else:
-    print('false')
+    print('とても綺麗です！このまま継続しましょう！')
 
   # 外接矩形された画像を表示
   cv2.imshow('output', src)
@@ -61,4 +63,5 @@ def detect_contour(path):
   cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-  detect_contour('./data/temp/0sec_detection.jpg')
+  # detect_contour('./data/temp/0sec_detection.jpg')
+  print(1)
