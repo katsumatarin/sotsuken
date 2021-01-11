@@ -4,7 +4,11 @@
 
 # DEMO
 
-今後更新予定
+
+# 実行方法
+- `cd sotsuken`
+- `python src/main.py`
+
 
 # Features
 
