@@ -21,6 +21,7 @@ class SetReminderRunner():
             with open('./data/remind_date.txt', 'a') as f:
                 print(date, file=f)
             self.root.destroy()
+            main.main_func()
 
         # リマインダー設定ボタン
         self.set_reminder_btn = tk.Button(self.root, text='設定', command=set_reminder_btn_click)
