@@ -11,9 +11,9 @@ import main
 
 def chirakari_hantei():
   output_name = utils.get_unused_out_dir_num()
-  os.makedirs(f'../data/out/{output_name}', exist_ok=True)
+  os.makedirs(f'./data/out/{output_name}', exist_ok=True)
 
-  output_video_file_name = f'../data/out/{output_name}/{output_name}.mp4'
+  output_video_file_name = f'./data/out/{output_name}/{output_name}.mp4'
 
   # ビデオを撮影し、保存する
   capture_depth_image.capture_depth_image(output_video_file_name, 4)
@@ -23,7 +23,7 @@ def chirakari_hantei():
   src_array = []
 
   for sec in sec_array:
-    output_image_file_name = f'../data/out/{output_name}/{output_name}_{sec}sec.jpg'
+    output_image_file_name = f'./data/out/{output_name}/{output_name}_{sec}sec.jpg'
 
     # 指定された秒数の画像を保存
     save_frame_sec.save_frame_sec(output_video_file_name, sec, output_image_file_name)
