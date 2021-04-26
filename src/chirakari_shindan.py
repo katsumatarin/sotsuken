@@ -1,5 +1,7 @@
 import tkinter as tk
 import main
+import daily_check
+import chirakari_hantei
 
 class ChirakariShindanRunner():
     def __init__(self):
@@ -53,10 +55,11 @@ class ChirakariShindanRunner():
 
         def to_mode_2_clicked():
             self.root.destroy()
+            daily_check.daily_check()
 
         def to_mode_3_clicked():
             self.root.destroy()
-
+            chirakari_hantei.chirakari_hantei()
 
         self.yes_button.config(command=yes_clicked)
         self.no_button.config(command=no_clicked)
